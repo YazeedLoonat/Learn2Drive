@@ -1,24 +1,12 @@
-import './App.css';
-import Footer from './components/Footer';
-/*
-	FORM
-		import FormController from './components/FormController';
-		<FormController formName={"ContactUs"}/>
-
-	Header
-
-	Footer
-
-	Nav
-
-	Body
-*/
+import React from 'react';
+import MyApp from './components/MyApp';
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
 	return (
-		<div className="App">
-			<Footer />
-		</div>
+		<BrowserRouter>
+			<MyApp />
+		</BrowserRouter>
 	);
 }
 
