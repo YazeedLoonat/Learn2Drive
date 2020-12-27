@@ -4,9 +4,9 @@ import Box from '@material-ui/core/Box';
 const Header = () => {
 	return <Box
 		style={{
-			position: "sticky",
-			left: "35%",
-			display: "flex"
+			display: "flex",
+			justifyContent: "center",
+			width: "100%",
 		}}
 	>
 		<img

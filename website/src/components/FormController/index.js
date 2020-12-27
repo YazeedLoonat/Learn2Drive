@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Form from '../Form';
 import Action from '../Action';
-import Grid from '@material-ui/core/Grid';
 
 const SUBMIT = "submit";
 const FORMS = {
@@ -19,28 +18,82 @@ const FORMS = {
 				label: "Name",
 				required: true,
 				multiline: false,
-				value: ""
+				value: "",
+				type: "text"
 			}],
 			[{
 				name: "email",
 				label: "Email",
 				required: true,
 				multiline: false,
-				value: ""
+				value: "",
+				type: "email"
 			}],
 			[{
 				name: "subject",
 				label: "Subject",
 				required: true,
 				multiline: false,
-				value: ""
+				value: "",
+				type: "text"
 			}],
 			[{
 				name: "message",
 				label: "Message",
 				required: true,
 				multiline: true,
-				value: ""
+				value: "",
+				type: "text"
+			}]
+		]
+	},
+	Register: {
+		actions: [
+			{
+				name: SUBMIT,
+				label: "Send"
+			}
+		],
+		rows: [
+			[{
+				name: "name",
+				label: "Name",
+				required: true,
+				multiline: false,
+				value: "",
+				type: "text"
+			}],
+			[{
+				name: "email",
+				label: "Email",
+				required: true,
+				multiline: false,
+				value: "",
+				type: "email"
+			}],
+			[{
+				name: "package",
+				label: "Preferred Package",
+				required: true,
+				multiline: false,
+				value: "",
+				type: "select"
+			}],
+			[{
+				name: "date",
+				label: "Class Date",
+				required: true,
+				multiline: false,
+				value: "",
+				type: "date"
+			}],
+			[{
+				name: "message",
+				label: "Message",
+				required: true,
+				multiline: true,
+				value: "",
+				type: "text"
 			}]
 		]
 	}
@@ -89,37 +142,32 @@ const FormController = ({ formName }) => {
 		}
 	};
 
-	const onChange = (value, name, required) => {
-		const toOverwrite = {
-			value: value,
-			valid: required ? !!value : true
-		};
+	const onChange = (value, valid, name) => {
 		setFieldInfo({
 			...fieldInfo,
-			[name]: toOverwrite
+			[name]: {
+				value,
+				valid
+			}
 		});
 	};
 
-	return <div style={{ flexGrow: 1 }}>
-		<Grid container spacing={3} key={`form`}>
-			<Grid item key={`form_body`} xs={5}>
-				<Form rows={form.rows} onChange={onChange} />
-			</Grid>
-			<Grid item key={`form_actions`} xs={2}>
-				{
-					form.actions.map((action, i) => {
-						return <Action
-							key={`action_${i}`}
-							variant="outlined"
-							onClick={onClick}
-							label={action.label}
-							name={action.name}
-							disabled={actionInfo[action.name]}
-						/>;
-					})
-				}
-			</Grid>
-		</Grid>
+	return <div>
+		<Form rows={form.rows} onChange={onChange} fieldInfo={fieldInfo} />
+		<div style={{ textAlign: "left", marginTop: "2%" }}>
+			{
+				form.actions.map((action, i) => {
+					return <Action
+						key={`action_${i}`}
+						variant="outlined"
+						onClick={onClick}
+						label={action.label}
+						name={action.name}
+						disabled={actionInfo[action.name]}
+					/>;
+				})
+			}
+		</div>
 	</div>;
 };
 

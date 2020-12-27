@@ -1,5 +1,4 @@
 import React from 'react';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
@@ -10,7 +9,7 @@ const Footer = () => {
 		left: "10%",
 		marginTop: "5%"
 	}
-	return <Paper style={{ ...style }}>
+	return <div style={{ ...style }}>
 		<Grid container spacing={3} key={`footer_container`} justify={"space-evenly"}>
 			<Grid item key={`footer_item_0`}>
 				<img src={"/ADot.jpg"} alt={"A Dot Logo"}/>
@@ -26,7 +25,7 @@ const Footer = () => {
 				</a>
 			</Grid>
 		</Grid>
-	</Paper>;
+	</div>;
 };
 
 export default Footer;

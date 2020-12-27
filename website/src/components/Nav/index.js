@@ -74,24 +74,26 @@ const Nav = () => {
 			setMenuOpen(false);
 		}
 	});
-	return <AppBar position="static" style={{ backgroundColor: "#293E6A" }}>
-		<Toolbar>
-			<IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMenu}>
-				<MenuIcon />
-			</IconButton>
-			<NavMenu
-				nav={NAVITEMS}
-				selected={currentNav}
-				menuOpen={menuOpen}
-				onClose={handleMenuClose}
-				height={IMAGE_HEIGHT || 0}
-			/>
-			<Typography variant="h6" >
-				{window.innerWidth >= 1218 ? currentNav.label : ""}
-			</Typography>
-			<Header />
-		</Toolbar>
-	</AppBar>;
+	return <div>
+		<AppBar position="static" style={{ backgroundColor: "#293E6A" }}>
+			<Toolbar>
+				<IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMenu}>
+					<MenuIcon />
+				</IconButton>
+				<Typography variant="h6">
+					{window.innerWidth >= 1218 ? currentNav.label : ""}
+				</Typography>
+				<Header />
+			</Toolbar>
+		</AppBar>
+		<NavMenu
+			nav={NAVITEMS}
+			selected={currentNav}
+			menuOpen={menuOpen}
+			onClose={handleMenuClose}
+			height={IMAGE_HEIGHT || 0}
+		/>
+	</div>;
 };
 
 export default Nav;

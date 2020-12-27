@@ -3,7 +3,7 @@ import React from 'react';
 import Field from '../Field';
 import Grid from '@material-ui/core/Grid';
 
-const Form = ({ rows, onChange }) => {
+const Form = ({ rows, onChange, fieldInfo }) => {
 	return rows.map((fields, i) => {
 		return <Grid container spacing={3} key={`grid_${i}`}>
 			{
@@ -16,6 +16,8 @@ const Form = ({ rows, onChange }) => {
 							required={field.required}
 							multiline={field.multiline}
 							onChange={onChange}
+							type={field.type}
+							info={fieldInfo[field.name] || { value: "" }}
 						/>
 					</Grid>;
 				})

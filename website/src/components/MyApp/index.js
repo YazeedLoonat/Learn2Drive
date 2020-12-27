@@ -17,41 +17,43 @@ import { Route, Switch } from "react-router-dom";
 const MyApp = () => {
 	return <div className="App">
 		<Nav />
-		<Switch>
-			<Route path={"/home"}>
-				<Home />
-			</Route>
-			<Route path={"/about"}>
-				<About />
-			</Route>
-			<Route path={"/reviews"}>
-				<Reviews />
-			</Route>
-			<Route path={"/classes"}>
-				<Classes />
-			</Route>
-			<Route path={"/packages"}>
-				<Packages />
-			</Route>
-			<Route path={"/location"}>
-				<Location />
-			</Route>
-			<Route path={"/register"}>
-				<Register />
-			</Route>
-			<Route path={"/payment"}>
-				<Payment />
-			</Route>
-			<Route path={"/contactUs"}>
-				<ContactUs />
-			</Route>
-			<Route path={"/"} exact>
-				<Home />
-			</Route>
-			<Route>
-				<NotFound />
-			</Route>
-		</Switch>
+		<main>
+			<Switch>
+				<Route path={"/home"}>
+					<Home />
+				</Route>
+				<Route path={"/about"}>
+					<About />
+				</Route>
+				<Route path={"/reviews"}>
+					<Reviews />
+				</Route>
+				<Route path={"/classes"}>
+					<Classes />
+				</Route>
+				<Route path={"/packages"}>
+					<Packages />
+				</Route>
+				<Route path={"/location"}>
+					<Location />
+				</Route>
+				<Route path={"/register"}>
+					<Register />
+				</Route>
+				<Route path={"/payment"}>
+					<Payment />
+				</Route>
+				<Route path={"/contactUs"}>
+					<ContactUs />
+				</Route>
+				<Route path={"/"} exact>
+					<Home />
+				</Route>
+				<Route>
+					<NotFound />
+				</Route>
+			</Switch>
+		</main>
 		<Footer />
 	</div>
 };

@@ -7,7 +7,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(() => ({
 	drawer: {
 		height: props => `calc(100% - ${props.height}px)`,
-		top: props => props.height
+		top: props => props.height,
+		position: "absolute"
 	}
 }));
 

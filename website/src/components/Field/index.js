@@ -1,39 +1,33 @@
-import React, { useCallback, useState } from 'react';
-import TextField from '@material-ui/core/TextField';
+import React from 'react';
+import MyTextField from './MyTextField';
+import MyEmailField from './MyEmailField';
+import MySelectField from './MySelectField';
+import MyDateField from './MyDateField';
 
-const ERROR_MESSAGE = "This field is required";
+const TYPE_MAP = {
+	email: MyEmailField,
+	select: MySelectField,
+	date: MyDateField,
+	text: MyTextField,
+};
+
 const Field = ({
 	name,
 	label,
 	required,
 	multiline,
-	onChange
+	onChange,
+	type,
+	info
 }) => {
-	const [error, setError] = useState("");
-	const handleChange = useCallback((event) => {
-		onChange(event.target.value, name, required);
-		if (required) {
-			if (event.target.value) {
-				setError("");
-			} else {
-				setError(ERROR_MESSAGE);
-			}
-		} else {
-			setError("");
-		}
-	}, [name, onChange, required]);
-
-	return <TextField
-		key={`${name}_textField`}
-		id={name}
+	const ThisField = TYPE_MAP[type];
+	return <ThisField
+		name={name}
 		label={label}
 		required={required}
 		multiline={multiline}
-		onChange={handleChange}
-		error={!!error}
-		helperText={error}
-		rows={5}
-		fullWidth
+		onChange={onChange}
+		info={info}
 	/>
 };
 

@@ -8,7 +8,7 @@ const useStyles = makeStyles(() => ({
 		marginTop: "2%"
 	},
 	subHeader: {
-		marginTop: "5%",
+		marginTop: "2%",
 		marginLeft: "15%"
 	}
 }));
