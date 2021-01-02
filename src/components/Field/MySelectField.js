@@ -49,6 +49,7 @@ const MySelectField = ({
 		helperText={error}
 		fullWidth
 		value={info.value}
+		InputLabelProps={{ shrink: true }}
 		select
 	>
 		{

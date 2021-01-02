@@ -29,11 +29,11 @@ const findNav = (path) => {
 	return navItem;
 };
 
-const Nav = () => {
+const Nav = ({ windowWidth}) => {
 	const classes = useStyles();
 	const history = useHistory();
 	const [currentNav, setCurrentNav] = useState(findNav(window.location.pathname));
-	const [menuOpen, setMenuOpen] = useState(false);
+	const [menuOpen, setMenuOpen] = useState(windowWidth >= 1218);
 	const handleMenu = useCallback(() => {
 		setMenuOpen(!menuOpen);
 	});
@@ -42,7 +42,7 @@ const Nav = () => {
 			setCurrentNav(NAVITEMS[index]);
 			history.push(NAVITEMS[index].name);
 		}
-		if (window.innerWidth < 1218) {
+		if (windowWidth < 1218) {
 			setMenuOpen(false);
 		}
 	});
@@ -53,7 +53,7 @@ const Nav = () => {
 					<MenuIcon />
 				</IconButton>
 				<Typography variant="h6">
-					{window.innerWidth >= 1218 ? currentNav.label : ""}
+					{windowWidth >= 1218 ? currentNav.label : ""}
 				</Typography>
 				<Header />
 			</Toolbar>
