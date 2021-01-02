@@ -55,7 +55,7 @@ const Packages = () => {
 			<Grid container spacing={3}>
 				{
 					PACKAGES.map((packages, index) => {
-						return <Grid item xs={4} key={`package_${index}`}>
+						return <Grid item xs={6} key={`package_${index}`}>
 							<Card>
 								<CardActionArea>
 									<CardMedia

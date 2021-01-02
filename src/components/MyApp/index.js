@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../App.css';
 import Nav from '../Nav';
 import Footer from '../Footer';
@@ -19,16 +19,28 @@ const useStyles = makeStyles(() => ({
 	container: {
 		marginTop: "2%",
 		marginBottom: "2%",
-		width: "70%",
-		marginLeft: "15%",
-		marginRight: "15%"
+		width: props => props.windowWidth > 1200 ? "70%" : "90%",
+		marginLeft: props => props.windowWidth > 1200 ? "15%": "5%",
+		marginRight: props => props.windowWidth > 1200 ? "15%": "5%"
 	}
 }));
 
 const MyApp = () => {
-	const classes = useStyles();
+	const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+	useEffect(() => {
+		function handleResize() {
+			setWindowWidth(window.innerWidth);
+		}
+
+		window.addEventListener('resize', handleResize);
+		return _ => {
+			window.removeEventListener('resize', handleResize);
+		}
+	});
+	const classes = useStyles({ windowWidth });
+
 	return <div className="App">
-		<Nav />
+		<Nav windowWidth={windowWidth} />
 		<main>
 			<div className={classes.container}>
 				<Switch>

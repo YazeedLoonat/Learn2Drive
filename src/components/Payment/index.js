@@ -18,7 +18,7 @@ const Payment = () => {
 	const classes = useStyles();
 	return <div>
 		<Typography variant={"h5"} className={classes.header}> How to Pay </Typography>
-		<Typography variant={"h6"} className={classes.header}> Payment can be made at the class. We accept: </Typography>
+		<Typography variant={"h6"} className={classes.header}> Payment can be made at the class or online. We accept: </Typography>
 		<ContentList listInfo={PAYMENT_LIST_INFO_1} />
 
 		<Typography variant={"h5"} className={classes.headerBlue}> Please call before making a payment </Typography>
