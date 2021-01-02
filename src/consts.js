@@ -206,7 +206,7 @@ const FORMS = {
 
 const HOME_LIST_INFO = [
 	"Affordable all-inclusive packages",
-	"high quality driving institution",
+	"High quality driving institution",
 	"Positive reinforcement",
 	"Online registration",
 	"You make your own driving schedule",
